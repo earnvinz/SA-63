@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="179.0" prefWidth="377.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SA_63.Controller.popup_closeController">
+   <children>
+      <Button layoutX="46.0" layoutY="130.0" mnemonicParsing="false" onAction="#accept" prefHeight="29.0" prefWidth="91.0" text="ตกลง" />
+      <Button layoutX="226.0" layoutY="130.0" mnemonicParsing="false" onAction="#back" prefHeight="29.0" prefWidth="97.0" text="ยกเลิก" />
+      <Label fx:id="name" layoutX="30.0" layoutY="24.0" prefHeight="17.0" prefWidth="263.0" text="ยืนยันการปิดบัญชีคุณ">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="idnumber" layoutX="46.0" layoutY="65.0" prefHeight="25.0" prefWidth="285.0" promptText="เลขบัตรประชาชนของคุณ" />
+      <Label fx:id="warn" layoutX="69.0" layoutY="101.0" prefHeight="17.0" prefWidth="226.0" text="เลขบัตรประชาชนไม่ถูกต้อง" textFill="RED" />
+   </children>
+</AnchorPane>
