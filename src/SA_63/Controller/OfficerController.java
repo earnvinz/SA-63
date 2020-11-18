@@ -60,6 +60,18 @@ public class OfficerController implements Initializable {
 
 
     }
+    public void depo_withdraw(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("Deposit_Withdraw.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root, 418, 271));
+
+        stage.setResizable(false);
+        stage.show();
+
+
+
+    }
 
 
 
@@ -78,21 +90,26 @@ public class OfficerController implements Initializable {
         DB_memberClass.getConnection(); /*เชื่อมต่อไปยัง database */
         ShowData();
         back.setDisable(true);
-        name.setText(allmember.get(count_loop).getFirstname());
-        surname.setText(allmember.get(count_loop).getLastname());
-        idnumber.setText(allmember.get(count_loop).getId());
-        age.setText(""+allmember.get(count_loop).getAge());
-        address.setText(allmember.get(count_loop).getAddress());
-        contact.setText(allmember.get(count_loop).getPhonenumber());
-        gender.setText(""+allmember.get(count_loop).getGender());
-        money.setText(""+allmember.get(count_loop).getBalance());
+        System.out.println(allmember.size());
+        if(allmember.size()>0) {
+            name.setText(allmember.get(count_loop).getFirstname());
+            surname.setText(allmember.get(count_loop).getLastname());
+            idnumber.setText(allmember.get(count_loop).getId());
+            age.setText("" + allmember.get(count_loop).getAge());
+            address.setText(allmember.get(count_loop).getAddress());
+            contact.setText(allmember.get(count_loop).getPhonenumber());
+            gender.setText("" + allmember.get(count_loop).getGender());
+            money.setText("" + allmember.get(count_loop).getBalance());
+        }
+        else{
+            next.setDisable(true);
+            back.setDisable(true);
+        }
 
         if(count_loop+1 == allmember.size()){
             next.setDisable(true);
         }
-        else{
-            next.setDisable(false);
-        }
+
         StaticAllmember.setCountloop(count_loop);
 
 
@@ -165,7 +182,8 @@ public class OfficerController implements Initializable {
                 Gender gender = Gender.valueOf(g);
                 Double balance = Double.parseDouble(resultSet.getString(8));
                 String password = resultSet.getString(9);
-                allmember.add(new Member(fname,lname,age,id,address,contact,gender,balance,password));
+                Double firstDepo = Double.parseDouble(resultSet.getString(10));
+                allmember.add(new Member(fname,lname,age,id,address,contact,gender,balance,password,firstDepo));
             }
             StaticAllmember.setStatic_allmember(allmember);
         }

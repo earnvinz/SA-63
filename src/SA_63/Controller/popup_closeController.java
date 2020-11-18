@@ -1,6 +1,8 @@
 package SA_63.Controller;
 
+import SA_63.Connection.DB_historyClass;
 import SA_63.Connection.DB_memberClass;
+import SA_63.Static.Count_history_transaction;
 import SA_63.Static.StaticAllmember;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -38,6 +40,13 @@ public class popup_closeController implements Initializable {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
+
+            Parent root = FXMLLoader.load(getClass().getResource("OfficerPage.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root, 624, 578));
+            stage.show();
+            stage.setResizable(false);
         }
         else {
             warn.setVisible(true);
