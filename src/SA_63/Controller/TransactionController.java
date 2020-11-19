@@ -22,7 +22,7 @@ import java.util.Collections;
 import java.util.ResourceBundle;
 
 public class TransactionController implements Initializable {
-    ArrayList<Deposit_Withdraw> Myhistory = new ArrayList<>();
+    ArrayList<Deposit_Withdraw> Myhistory ;
     @FXML
     Label name;
     @FXML
@@ -39,6 +39,7 @@ public class TransactionController implements Initializable {
     TableColumn<Deposit_Withdraw,String> balance;
 
     public void back(ActionEvent event) throws IOException{
+
         Parent root = FXMLLoader.load(getClass().getResource("MemberPage.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root, 408, 445));
@@ -48,7 +49,7 @@ public class TransactionController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        Myhistory = new ArrayList<>();
         name.setText(name.getText()+" "+ OnlineUser.getOnline().getFirstname()+" "+OnlineUser.getOnline().getLastname());
         for(Deposit_Withdraw deposit_withdraw : Count_history_transaction.getHistory()){
             if(deposit_withdraw.getAccount_ID().equals(OnlineUser.getOnline().getId())){
@@ -59,15 +60,20 @@ public class TransactionController implements Initializable {
         }
         Collections.sort(Myhistory);
 
+
+        double total = 0;
+        for(Deposit_Withdraw deposit_withdraw : Myhistory){
+            total =  deposit_withdraw.find_total(total);
+        }
+
+
+
+
         refid.setCellValueFactory(new PropertyValueFactory<>("DepWith_ID"));
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
         type.setCellValueFactory(new PropertyValueFactory<>("status"));
         amount.setCellValueFactory(new PropertyValueFactory<>("amount"));
         balance.setCellValueFactory(new PropertyValueFactory<>("final_balance"));
-        double total = 0;
-        for(Deposit_Withdraw deposit_withdraw : Myhistory){
-            total =  deposit_withdraw.find_total(total);
-        }
         for(Deposit_Withdraw deposit_withdraw : Myhistory){
             table.getItems().add(deposit_withdraw);
         }

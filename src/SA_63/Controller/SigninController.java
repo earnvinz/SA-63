@@ -2,11 +2,11 @@ package SA_63.Controller;
 
 import SA_63.Connection.DB_historyClass;
 import SA_63.Connection.DB_memberClass;
-import SA_63.Model.Deposit_Withdraw;
-import SA_63.Model.Gender;
-import SA_63.Model.Member;
+import SA_63.Model.*;
 import SA_63.Static.Count_history_transaction;
 import SA_63.Static.OnlineUser;
+import SA_63.Static.StaticAllEmployee;
+import SA_63.Static.StaticAllmember;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,19 +33,33 @@ public class SigninController implements Initializable {
     TextField id;
     @FXML
     PasswordField password;
-    private ArrayList<Member> allmember = new ArrayList<>();
+    private ArrayList<Member> allmember = new ArrayList<>(); // Member
     private ArrayList<Deposit_Withdraw> allhistory = new ArrayList<>();
+    private ArrayList<Employee> allemployee = new ArrayList<>();
     @FXML
     public void Signin(ActionEvent event) throws IOException {
         if(Checkid()) {
 
             if(CheckPassword()){
-
-                Parent root = FXMLLoader.load(getClass().getResource("MemberPage.fxml"));
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(new Scene(root, 408, 445));
-                stage.show();
-                stage.setResizable(false);
+                if(CheckisEmployee()){
+                    for(Employee e : allemployee){
+                        if(e.getId().equals(id.getText())){
+                            StaticAllEmployee.setOnlineEmployee(e);
+                        }
+                    }
+                    Parent root = FXMLLoader.load(getClass().getResource("OfficerPage.fxml"));
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setScene(new Scene(root, 624, 578));
+                    stage.show();
+                    stage.setResizable(false);
+                }
+                else{
+                    Parent root = FXMLLoader.load(getClass().getResource("MemberPage.fxml"));
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setScene(new Scene(root, 408, 445));
+                    stage.show();
+                    stage.setResizable(false);
+                }
 
             }
             else if(password.getText().equals("")){
@@ -63,17 +77,7 @@ public class SigninController implements Initializable {
             warn.setText("รหัสบัตรประชาชนไม่ถูกต้อง กรุณาลองอีกครั้ง");
             warn.setVisible(true);
         }
-        if (id.getText().equals("admin") && password.getText().equals("123")){
-            Parent root = FXMLLoader.load(getClass().getResource("OfficerPage.fxml"));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root, 624, 578));
-            stage.show();
-            stage.setResizable(false);
-        }
-        else if (id.getText().equals("admin") && !password.getText().equals("123")){
-            warn.setText("รหัสผ่านผู้ดูแลระบบ/พนักงาน ไม่ถูกต้อง");
-            warn.setVisible(true);
-        }
+
     }
     public void close(ActionEvent event){
         System.exit(1);
@@ -102,9 +106,9 @@ public class SigninController implements Initializable {
                 Gender gender = Gender.valueOf(g);
                 Double balance = Double.parseDouble(resultSet.getString(8));
                 String password = resultSet.getString(9);
-                Double firstDepo = Double.parseDouble(resultSet.getString(10));
-                allmember.add(new Member(fname,lname,age,id,address,contact,gender,balance,password,firstDepo));
+                allmember.add(new Member(fname,lname,age,id,address,contact,gender,balance,password));
             }
+            StaticAllmember.setStatic_allmember(allmember);
         }
         catch (Exception e){
             e.printStackTrace();
@@ -113,7 +117,7 @@ public class SigninController implements Initializable {
 
 
 
-
+        /* history */
         DB_historyClass.getConnection();
         String sql1 = "SELECT * FROM `history_transaction`";
         try {
@@ -138,19 +142,52 @@ public class SigninController implements Initializable {
         }
 
 
+        /* employee */
+        String sql2 = "SELECT * FROM `table_employee`";
+        DB_memberClass.getConnection();
+        try {
+            Connection connection = DB_memberClass.getConnection();
+            Statement statement = connection.createStatement();
+            resultSet = statement.executeQuery(sql2);
+            while (resultSet.next()){
+                String name = resultSet.getString(6);
+                String lastname = resultSet.getString(7);
+                String ag = resultSet.getString(4);
+                int age = Integer.parseInt(ag);
+                String id = resultSet.getString(1);
+                String phonenumber = resultSet.getString(2);
 
 
+                String gende = resultSet.getString(5);
+                Gender gender = Gender.valueOf(gende);
+                String education=resultSet.getString(9);
+                String department = resultSet.getString(10);
+                String address =resultSet.getString(3);
+                String password = resultSet.getString(8);
+                String email = resultSet.getString(11);
 
 
+                allemployee.add(new Employee(name,lastname,age,id,phonenumber,gender,education,department,address,password,email));
 
 
+            }
+            StaticAllEmployee.setAllemployee(allemployee);
+            System.out.println("Size of allemployee = " + allemployee.size());
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
     }
     public boolean Checkid(){
         for(Member m : allmember){
             if(id.getText().equals(m.getId())){
+                return true;
+            }
+        }
+        for(Employee e : allemployee){
+            if(id.getText().equals(e.getId())){
                 return true;
             }
         }
@@ -163,6 +200,19 @@ public class SigninController implements Initializable {
                 return true;
             }
 
+        }
+        for(Employee e : allemployee){
+            if(id.getText().equals(e.getId()) && password.getText().equals(e.getPassword())){
+                return  true;
+            }
+        }
+        return false;
+    }
+    public boolean CheckisEmployee(){
+        for(Employee e : allemployee){
+            if(id.getText().equals(e.getId())){
+                return true;
+            }
         }
         return false;
     }

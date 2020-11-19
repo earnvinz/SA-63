@@ -34,7 +34,14 @@ public class MemberPageController implements Initializable {
         stage.show();
         stage.setResizable(false);
     }
+    public void Profile(ActionEvent event) throws IOException {
 
+        Parent root = FXMLLoader.load(getClass().getResource("MyProfile.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root, 594, 472));
+        stage.show();
+        stage.setResizable(false);
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         money.setText(money.getText()+" : "+ OnlineUser.getOnline().getBalance()+"  THB");

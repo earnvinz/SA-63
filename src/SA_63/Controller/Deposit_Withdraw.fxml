@@ -6,20 +6,27 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="271.0" prefWidth="418.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SA_63.Controller.Deposit_WithdrawController">
    <children>
-      <MenuButton fx:id="choice" layoutX="29.0" layoutY="32.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="107.0" text="ฝาก/ถอน">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#adc4da" height="157.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="418.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d4eaff" height="141.0" layoutY="138.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="418.0" />
+      <MenuButton fx:id="choice" layoutX="29.0" layoutY="22.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="107.0" text="ฝาก/ถอน">
         <items>
           <MenuItem mnemonicParsing="false" onAction="#setDeposit" text="ฝากเงิน" />
           <MenuItem mnemonicParsing="false" onAction="#setWithdraw" text="ถอนเงิน" />
         </items>
       </MenuButton>
-      <Label fx:id="name" layoutX="186.0" layoutY="36.0" prefHeight="17.0" prefWidth="146.0" text="คุณ " />
+      <Label fx:id="name" layoutX="172.0" layoutY="36.0" prefHeight="17.0" prefWidth="233.0" text="คุณ " />
       <TextField fx:id="money" alignment="CENTER" layoutX="29.0" layoutY="80.0" prefHeight="25.0" prefWidth="233.0" promptText="จำนวนเงิน" />
-      <Button layoutX="57.0" layoutY="164.0" mnemonicParsing="false" onAction="#accept" prefHeight="25.0" prefWidth="107.0" text="ยืนยัน" />
-      <Button layoutX="253.0" layoutY="164.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="107.0" text="ยกเลิก" />
-      <Label fx:id="warn" layoutX="29.0" layoutY="119.0" prefHeight="17.0" prefWidth="233.0" text="ยอดเงินคงเหลือไม่เพียงพอ" />
-      <Label layoutX="279.0" layoutY="84.0" prefHeight="17.0" prefWidth="37.0" text="THB" />
+      <Button layoutX="57.0" layoutY="164.0" mnemonicParsing="false" onAction="#accept" prefHeight="35.0" prefWidth="107.0" text="ยืนยัน" />
+      <Button layoutX="253.0" layoutY="164.0" mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="107.0" text="ยกเลิก" />
+      <Label fx:id="warn" layoutX="29.0" layoutY="119.0" prefHeight="28.0" prefWidth="233.0" text="ยอดเงินคงเหลือไม่เพียงพอ" textFill="#f20000">
+         <font>
+            <Font name="Verdana Italic" size="21.0" />
+         </font></Label>
+      <Label layoutX="279.0" layoutY="84.0" prefHeight="17.0" prefWidth="30.0" text="THB" />
    </children>
 </AnchorPane>

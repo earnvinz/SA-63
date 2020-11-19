@@ -2,23 +2,24 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="624.0" style="-fx-background-color: #9ad3bc;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SA_63.Controller.OfficerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="624.0" style="-fx-background-color: #f2dcbb;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SA_63.Controller.OfficerController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f3eac2" height="186.0" layoutY="392.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="624.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5b461" height="138.0" layoutX="11.0" layoutY="414.0" stroke="WHITE" strokeType="INSIDE" width="604.0" />
-      <Button layoutX="419.0" layoutY="423.0" mnemonicParsing="false" onAction="#depo_withdraw" prefHeight="55.0" prefWidth="185.0" text="ฝากเงิน / ถอนเงิน ">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffdc69" height="186.0" layoutY="392.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="624.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#efffaf" height="138.0" layoutX="11.0" layoutY="414.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="604.0" />
+      <Button fx:id="depo_with" layoutX="419.0" layoutY="423.0" mnemonicParsing="false" onAction="#depo_withdraw" prefHeight="55.0" prefWidth="185.0" text="ฝากเงิน / ถอนเงิน ">
          <font>
             <Font name="Calibri Italic" size="15.0" />
          </font></Button>
-      <Button layoutX="220.0" layoutY="423.0" mnemonicParsing="false" onAction="#newaccount" prefHeight="55.0" prefWidth="185.0" text="เปิดบัญชี">
+      <Button fx:id="open" layoutX="220.0" layoutY="423.0" mnemonicParsing="false" onAction="#newaccount" prefHeight="55.0" prefWidth="185.0" text="เปิดบัญชี">
          <font>
             <Font name="Calibri Italic" size="15.0" />
          </font></Button>
-      <Button layoutX="20.0" layoutY="423.0" mnemonicParsing="false" onAction="#closeaccount" prefHeight="55.0" prefWidth="185.0" text="ปิดบัญชี">
+      <Button fx:id="close" layoutX="20.0" layoutY="423.0" mnemonicParsing="false" onAction="#closeaccount" prefHeight="55.0" prefWidth="185.0" text="ปิดบัญชี">
          <font>
             <Font name="Calibri Italic" size="15.0" />
          </font></Button>
@@ -34,78 +35,81 @@
          <font>
             <Font name="Calibri Italic" size="15.0" />
          </font></Button>
-      <Label layoutX="36.0" layoutY="48.0" text="ชื่อ  : " textAlignment="CENTER" textFill="#ec524b" underline="true">
+      <Label layoutX="27.0" layoutY="65.0" text="ชื่อ  : " textAlignment="CENTER" textFill="#2b2185" underline="true">
          <font>
             <Font name="Calibri Italic" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="39.0" layoutY="83.0" text="นามสกุล : " textAlignment="CENTER" textFill="#ec524b" underline="true">
+      <Label layoutX="30.0" layoutY="100.0" text="นามสกุล : " textAlignment="CENTER" textFill="#2b2185" underline="true">
          <font>
             <Font name="Calibri Italic" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="38.0" layoutY="167.0" prefHeight="17.0" prefWidth="60.0" text="อายุ  : " textAlignment="CENTER" textFill="#ec524b" underline="true">
+      <Label layoutX="29.0" layoutY="184.0" prefHeight="17.0" prefWidth="60.0" text="อายุ  : " textAlignment="CENTER" textFill="#2b2185" underline="true">
          <font>
             <Font name="Calibri Italic" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="38.0" layoutY="210.0" text="ที่อยู่  : " textAlignment="CENTER" textFill="#ec524b" underline="true">
+      <Label layoutX="29.0" layoutY="227.0" text="ที่อยู่  : " textAlignment="CENTER" textFill="#2b2185" underline="true">
          <font>
             <Font name="Calibri Italic" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="37.0" layoutY="252.0" text="เบอร์โทรศัพท์ : " textAlignment="CENTER" textFill="#ec524b" underline="true">
+      <Label layoutX="28.0" layoutY="269.0" text="เบอร์โทรศัพท์ : " textAlignment="CENTER" textFill="#2b2185" underline="true">
          <font>
             <Font name="Calibri Italic" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="36.0" layoutY="294.0" text="เพศ  : " textAlignment="CENTER" textFill="#ec524b" underline="true">
+      <Label layoutX="27.0" layoutY="311.0" text="เพศ  : " textAlignment="CENTER" textFill="#2b2185" underline="true">
          <font>
             <Font name="Calibri Italic" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="37.0" layoutY="335.0" text="ยอดเงินคงเหลือ : " textAlignment="CENTER" textFill="#ec524b" underline="true">
+      <Label layoutX="20.0" layoutY="352.0" text="ยอดเงินคงเหลือ : " textAlignment="CENTER" textFill="#2b2185" underline="true">
+         <font>
+            <Font name="Calibri Italic" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="141.0" prefHeight="21.0" prefWidth="185.0" text="เลขบัตรประจำตัวประชาชน  : " textAlignment="CENTER" textFill="#2b2185" underline="true">
          <font>
             <Font name="Calibri Italic" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="38.0" layoutY="124.0" prefHeight="21.0" prefWidth="185.0" text="เลขบัตรประจำตัวประชาชน  : " textAlignment="CENTER" textFill="#ec524b" underline="true">
-         <font>
-            <Font name="Calibri Italic" size="17.0" />
-         </font>
-      </Label>
-      <Label fx:id="name" layoutX="113.0" layoutY="48.0" prefHeight="21.0" prefWidth="438.0" text="Label" textAlignment="CENTER" textFill="#ec524b" underline="true">
+      <Label fx:id="name" layoutX="104.0" layoutY="65.0" prefHeight="21.0" prefWidth="438.0" textAlignment="CENTER" textFill="#0095ff" underline="true">
          <font>
             <Font name="Calibri Italic" size="17.0" />
          </font></Label>
-      <Label fx:id="surname" layoutX="160.0" layoutY="83.0" prefHeight="21.0" prefWidth="438.0" text="Label" textAlignment="CENTER" textFill="#ec524b" underline="true">
+      <Label fx:id="surname" layoutX="151.0" layoutY="100.0" prefHeight="21.0" prefWidth="438.0" textAlignment="CENTER" textFill="#0095ff" underline="true">
          <font>
             <Font name="Calibri Italic" size="17.0" />
          </font></Label>
-      <Label fx:id="idnumber" layoutX="246.0" layoutY="124.0" prefHeight="21.0" prefWidth="378.0" text="Label" textAlignment="CENTER" textFill="#ec524b" underline="true">
+      <Label fx:id="idnumber" layoutX="237.0" layoutY="141.0" prefHeight="21.0" prefWidth="378.0" textAlignment="CENTER" textFill="#0095ff" underline="true">
          <font>
             <Font name="Calibri Italic" size="17.0" />
          </font></Label>
-      <Label fx:id="address" layoutX="100.0" layoutY="210.0" prefHeight="21.0" prefWidth="438.0" text="Label" textAlignment="CENTER" textFill="#ec524b" underline="true">
+      <Label fx:id="address" layoutX="91.0" layoutY="227.0" prefHeight="21.0" prefWidth="438.0" textAlignment="CENTER" textFill="#0095ff" underline="true">
          <font>
             <Font name="Calibri Italic" size="17.0" />
          </font></Label>
-      <Label fx:id="contact" layoutX="160.0" layoutY="252.0" prefHeight="21.0" prefWidth="438.0" text="Label" textAlignment="CENTER" textFill="#ec524b" underline="true">
+      <Label fx:id="contact" layoutX="151.0" layoutY="269.0" prefHeight="21.0" prefWidth="438.0" textAlignment="CENTER" textFill="#0095ff" underline="true">
          <font>
             <Font name="Calibri Italic" size="17.0" />
          </font></Label>
-      <Label fx:id="gender" layoutX="124.0" layoutY="294.0" prefHeight="21.0" prefWidth="438.0" text="Label" textAlignment="CENTER" textFill="#ec524b" underline="true">
+      <Label fx:id="gender" layoutX="115.0" layoutY="311.0" prefHeight="21.0" prefWidth="438.0" textAlignment="CENTER" textFill="#0095ff" underline="true">
          <font>
             <Font name="Calibri Italic" size="17.0" />
          </font></Label>
-      <Label fx:id="money" layoutX="186.0" layoutY="335.0" prefHeight="21.0" prefWidth="438.0" text="Label" textAlignment="CENTER" textFill="#ec524b" underline="true">
+      <Label fx:id="money" layoutX="196.0" layoutY="352.0" prefHeight="28.0" prefWidth="399.0" textAlignment="CENTER" textFill="#0095ff" underline="true">
          <font>
             <Font name="Calibri Italic" size="24.0" />
          </font></Label>
-      <Label fx:id="age" layoutX="184.0" layoutY="167.0" prefHeight="21.0" prefWidth="378.0" text="Label" textAlignment="CENTER" textFill="#ec524b" underline="true">
+      <Label fx:id="age" layoutX="175.0" layoutY="184.0" prefHeight="21.0" prefWidth="378.0" textAlignment="CENTER" textFill="#0095ff" underline="true">
          <font>
             <Font name="Calibri Italic" size="17.0" />
          </font>
       </Label>
+      <TextField fx:id="find" layoutX="196.0" layoutY="21.0" prefHeight="25.0" prefWidth="223.0" promptText="เลขบัตรประชาชน 13 หลัก " />
+      <Button layoutX="432.0" layoutY="21.0" mnemonicParsing="false" onAction="#btnfindMember" prefHeight="25.0" prefWidth="51.0" text="ค้นหา" />
+      <Label fx:id="warn" layoutX="498.0" layoutY="25.0" prefHeight="17.0" prefWidth="111.0" text="ไม่พบข้อมูลในระบบ" textFill="#2b2185" underline="true" />
    </children>
 </AnchorPane>

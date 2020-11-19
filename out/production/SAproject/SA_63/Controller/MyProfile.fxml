@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="472.0" prefWidth="594.0" style="-fx-background-color: #5c6e91;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SA_63.Controller.MyProfileController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#add2f5" height="409.0" layoutX="34.0" layoutY="43.0" stroke="WHITE" strokeType="INSIDE" width="527.0" />
+      <Label layoutX="61.0" layoutY="43.0" prefHeight="41.0" prefWidth="276.0" text="ประวัติส่วนตัวของฉัน" underline="true">
+         <font>
+            <Font name="Arial Italic" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="55.0" layoutY="97.0" prefHeight="27.0" prefWidth="64.0" text="ชื่อ">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="55.0" layoutY="132.0" prefHeight="27.0" prefWidth="64.0" text="นามสกุล">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="53.0" layoutY="248.0" prefHeight="27.0" prefWidth="64.0" text="อายุ">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="53.0" layoutY="210.0" prefHeight="27.0" prefWidth="111.0" text="รหัสบัตรประชาชน">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="53.0" layoutY="284.0" prefHeight="27.0" prefWidth="64.0" text="เพศ">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="55.0" layoutY="321.0" prefHeight="27.0" prefWidth="64.0" text="ที่อยู่อาศัย ">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ImageView blendMode="MULTIPLY" fitHeight="265.0" fitWidth="165.0" layoutX="429.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Picture/21f0775a85c34782bd330916c30c5cfc.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="name" layoutX="214.0" layoutY="102.0" prefHeight="17.0" prefWidth="178.0" text="Label" textFill="#002fff">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label fx:id="surname" layoutX="214.0" layoutY="137.0" prefHeight="17.0" prefWidth="178.0" text="Label" textFill="#002fff">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label fx:id="idnumber" layoutX="200.0" layoutY="215.0" prefHeight="17.0" prefWidth="178.0" text="Label" textFill="#002fff">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label fx:id="age" layoutX="136.0" layoutY="253.0" prefHeight="17.0" prefWidth="57.0" text="Label" textFill="#002fff">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label layoutX="206.0" layoutY="248.0" prefHeight="27.0" prefWidth="64.0" text="ปี">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="gender" layoutX="104.0" layoutY="289.0" prefHeight="17.0" prefWidth="57.0" text="Label" textFill="#002fff">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label fx:id="address" alignment="TOP_LEFT" layoutX="134.0" layoutY="326.0" prefHeight="41.0" prefWidth="249.0" text="Label" textFill="#002fff">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label layoutX="61.0" layoutY="159.0" prefHeight="27.0" prefWidth="64.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="55.0" layoutY="173.0" prefHeight="27.0" prefWidth="87.0" text="เบอร์โทรติดต่อ ">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button layoutX="214.0" layoutY="394.0" mnemonicParsing="false" onAction="#back" prefHeight="41.0" prefWidth="150.0" style="-fx-background-color: #5c6e91;" text="กลับสู่หน้าหลัก" />
+      <Label fx:id="contact" layoutX="212.0" layoutY="178.0" prefHeight="17.0" prefWidth="178.0" text="g" textFill="#002fff">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

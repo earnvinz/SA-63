@@ -1,29 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="519.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SA_63.Controller.NewMemberPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="559.0" style="-fx-background-color: #fff8c1;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SA_63.Controller.NewMemberPageController">
    <children>
-      <TextField fx:id="fname" layoutX="72.0" layoutY="22.0" prefHeight="25.0" prefWidth="253.0" promptText="ชื่อจริง" />
-      <TextField fx:id="lname" layoutX="72.0" layoutY="69.0" prefHeight="25.0" prefWidth="253.0" promptText="นามสกุล" />
-      <TextField fx:id="age" layoutX="72.0" layoutY="208.0" prefHeight="25.0" prefWidth="91.0" promptText="อายุ" />
-      <TextField fx:id="address" layoutX="72.0" layoutY="257.0" prefHeight="38.0" prefWidth="253.0" promptText="ที่อยู่" />
-      <MenuButton fx:id="gender" layoutX="246.0" layoutY="208.0" mnemonicParsing="false" text="เพศ">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="31.0" layoutX="7.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="539.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ccfff0" height="114.0" layoutX="26.0" layoutY="374.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="528.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="31.0" layoutX="9.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="539.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="31.0" layoutX="7.0" layoutY="124.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="539.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="31.0" layoutX="7.0" layoutY="173.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="539.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="31.0" layoutX="7.0" layoutY="221.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="539.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="31.0" layoutX="7.0" layoutY="272.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="539.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="31.0" layoutX="7.0" layoutY="317.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="539.0" />
+      <TextField fx:id="fname" layoutX="127.0" layoutY="28.0" prefHeight="25.0" prefWidth="253.0" promptText="ห้ามเป็นอักขระพิเศษ หรือ ช่องว่าง" />
+      <TextField fx:id="lname" layoutX="127.0" layoutY="75.0" prefHeight="25.0" prefWidth="253.0" promptText="ห้ามเป็นอักขระพิเศษ หรือ ช่องว่าง" />
+      <PasswordField fx:id="password" layoutX="128.0" layoutY="127.0" prefHeight="25.0" prefWidth="253.0" promptText=" ไม่ต่ำกว่า 4 ตัวอักษร และ ไม่มากกว่า 6 ตัวอักษร " />
+      <TextField fx:id="cardnumber" layoutX="127.0" layoutY="176.0" promptText="รหัสบัตรประชาชน 13 หลัก" />
+      <TextField fx:id="age" layoutX="128.0" layoutY="224.0" prefHeight="25.0" prefWidth="91.0" />
+      <TextField fx:id="address" layoutX="128.0" layoutY="275.0" prefHeight="25.0" prefWidth="253.0" promptText="ห้ามเว้นช่องว่างเกิน 2 ช่องขึ้นไป" />
+      <MenuButton fx:id="gender" layoutX="330.0" layoutY="224.0" mnemonicParsing="false" text="เพศ">
         <items>
           <MenuItem fx:id="male" mnemonicParsing="false" onAction="#setMale" text="ชาย" />
           <MenuItem fx:id="female" mnemonicParsing="false" onAction="#setFemale" text="หญิง" />
         </items>
       </MenuButton>
-      <TextField fx:id="contact" layoutX="72.0" layoutY="311.0" prefHeight="25.0" prefWidth="253.0" promptText="เบอร์โทรศัพท์" />
-      <TextField fx:id="money" layoutX="127.0" layoutY="383.0" prefHeight="25.0" prefWidth="253.0" promptText="จำนวนเงินฝากครั้งแรก" />
-      <Button layoutX="272.0" layoutY="429.0" mnemonicParsing="false" onAction="#back" prefHeight="38.0" prefWidth="189.0" text="ย้อนกลับ" />
-      <Button layoutX="32.0" layoutY="429.0" mnemonicParsing="false" onAction="#SignUp" prefHeight="38.0" prefWidth="189.0" text="ลงทะเบียน" />
-      <TextField fx:id="cardnumber" layoutX="72.0" layoutY="170.0" promptText="รหัสบัตรประชาชน" />
-      <PasswordField fx:id="password" layoutX="72.0" layoutY="115.0" prefHeight="25.0" prefWidth="253.0" promptText="รหัสผ่าน/* ไม่เกิน 20 ตัวอักษร*/" />
+      <TextField fx:id="contact" layoutX="127.0" layoutY="321.0" prefHeight="25.0" prefWidth="253.0" promptText="เบอร์โทรศัพท์ 10 หลัก" />
+      <TextField fx:id="money" layoutX="127.0" layoutY="389.0" prefHeight="25.0" prefWidth="253.0" promptText="จำนวนเงินฝากครั้งแรก ( ขั้นต่ำ 100 )" />
+      <Button layoutX="272.0" layoutY="429.0" mnemonicParsing="false" onAction="#back" prefHeight="38.0" prefWidth="189.0" text="ย้อนกลับ" textFill="#4400ff" />
+      <Button layoutX="32.0" layoutY="429.0" mnemonicParsing="false" onAction="#SignUp" prefHeight="38.0" prefWidth="189.0" text="ลงทะเบียน" textFill="#350dff" />
+<!--      <Layer layoutX="32.0" layoutY="34.0" />-->
+      <Label layoutX="13.0" layoutY="32.0" prefHeight="17.0" prefWidth="39.0" text="ชื่อจริง" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Label layoutX="13.0" layoutY="79.0" prefHeight="17.0" prefWidth="66.0" text="นามสกุล" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Label layoutX="13.0" layoutY="131.0" prefHeight="19.0" prefWidth="51.0" text="รหัสผ่าน" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Label layoutX="10.0" layoutY="180.0" prefHeight="19.0" prefWidth="91.0" text="รหัสบัตรประชาชน" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Label layoutX="13.0" layoutY="228.0" prefHeight="17.0" prefWidth="39.0" text="อายุ" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Label layoutX="13.0" layoutY="279.0" prefHeight="17.0" prefWidth="39.0" text="ทีอยู่" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Label layoutX="10.0" layoutY="324.0" prefHeight="17.0" prefWidth="84.0" text="เบอร์โทรศัพท์" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Label fx:id="wname" layoutX="387.0" layoutY="35.0" prefHeight="17.0" prefWidth="172.0" text="* ข้อมูลไม่ถูกต้อง" textFill="RED" visible="false" />
+      <Label fx:id="wlname" layoutX="390.0" layoutY="79.0" prefHeight="17.0" prefWidth="172.0" text="* ข้อมูลไม่ถูกต้อง" textFill="RED" visible="false" />
+      <Label fx:id="wpassword" layoutX="391.0" layoutY="134.0" prefHeight="17.0" prefWidth="172.0" text="* ข้อมูลไม่ถูกต้อง" textFill="RED" visible="false" />
+      <Label fx:id="widnumber" layoutX="284.0" layoutY="180.0" prefHeight="17.0" prefWidth="253.0" text="* ข้อมูลไม่ถูกต้อง" textFill="RED" visible="false" />
+      <Label fx:id="wage" layoutX="227.0" layoutY="224.0" prefHeight="25.0" prefWidth="77.0" text="* ข้อมูลไม่ถูกต้อง" textFill="RED" visible="false" />
+      <Label fx:id="wgender" layoutX="399.0" layoutY="228.0" prefHeight="17.0" prefWidth="117.0" text="* กรุณาเลือกเพศ" textFill="RED" visible="false" />
+      <Label fx:id="waddress" layoutX="389.0" layoutY="275.0" prefHeight="25.0" prefWidth="155.0" text="* ข้อมูลไม่ถูกต้อง" textFill="RED" visible="false" />
+      <Label fx:id="wcontact" layoutX="387.0" layoutY="314.0" prefHeight="31.0" prefWidth="172.0" text="* ข้อมูลไม่ถูกต้อง" textFill="RED" visible="false" />
+      <Label layoutX="46.0" layoutY="393.0" prefHeight="17.0" prefWidth="84.0" text="จำนวนเงินฝาก" textFill="#0400ff" />
+      <Label fx:id="wmoney" alignment="TOP_LEFT" layoutX="408.0" layoutY="393.0" prefHeight="31.0" prefWidth="131.0" text="* จำนวนเงินไม่ถูกต้อง" textFill="RED" visible="false" />
    </children>
 </AnchorPane>
