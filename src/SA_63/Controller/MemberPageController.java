@@ -22,7 +22,7 @@ public class MemberPageController implements Initializable {
 
         Parent root = FXMLLoader.load(getClass().getResource("Signin.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root, 408, 400));
+        stage.setScene(new Scene(root, 408, 448));
         stage.show();
         stage.setResizable(false);
     }

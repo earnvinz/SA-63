@@ -7,10 +7,10 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="624.0" style="-fx-background-color: #f2dcbb;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SA_63.Controller.OfficerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="624.0" style="-fx-background-color: #d6e0f0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SA_63.Controller.OfficerController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffdc69" height="186.0" layoutY="392.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="624.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#efffaf" height="138.0" layoutX="11.0" layoutY="414.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="604.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#393b44" height="186.0" layoutY="392.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="624.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8d93ab" height="138.0" layoutX="11.0" layoutY="414.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="604.0" />
       <Button fx:id="depo_with" layoutX="419.0" layoutY="423.0" mnemonicParsing="false" onAction="#depo_withdraw" prefHeight="55.0" prefWidth="185.0" text="ฝากเงิน / ถอนเงิน ">
          <font>
             <Font name="Calibri Italic" size="15.0" />

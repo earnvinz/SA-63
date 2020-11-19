@@ -12,7 +12,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("Controller/Signin.fxml"));
         primaryStage.setTitle("SA-project-63");
-        primaryStage.setScene(new Scene(root, 408, 400));
+        primaryStage.setScene(new Scene(root, 408, 448));
         primaryStage.show();
     }
 

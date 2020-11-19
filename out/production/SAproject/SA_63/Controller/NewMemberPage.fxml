@@ -10,16 +10,16 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="559.0" style="-fx-background-color: #fff8c1;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SA_63.Controller.NewMemberPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="559.0" style="-fx-background-color: #40a8c4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SA_63.Controller.NewMemberPageController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="31.0" layoutX="7.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="539.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ccfff0" height="114.0" layoutX="26.0" layoutY="374.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="528.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="31.0" layoutX="9.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="539.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="31.0" layoutX="7.0" layoutY="124.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="539.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="31.0" layoutX="7.0" layoutY="173.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="539.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="31.0" layoutX="7.0" layoutY="221.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="539.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="31.0" layoutX="7.0" layoutY="272.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="539.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="31.0" layoutX="7.0" layoutY="317.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="539.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a2d5f2" height="31.0" layoutX="7.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="539.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ccfff0" height="114.0" layoutX="9.0" layoutY="372.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="539.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a2d5f2" height="31.0" layoutX="9.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="539.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a2d5f2" height="31.0" layoutX="7.0" layoutY="124.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="539.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a2d5f2" height="31.0" layoutX="7.0" layoutY="173.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="539.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a2d5f2" height="31.0" layoutX="7.0" layoutY="221.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="539.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a2d5f2" height="31.0" layoutX="7.0" layoutY="272.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="539.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a2d5f2" height="31.0" layoutX="7.0" layoutY="317.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="539.0" />
       <TextField fx:id="fname" layoutX="127.0" layoutY="28.0" prefHeight="25.0" prefWidth="253.0" promptText="ห้ามเป็นอักขระพิเศษ หรือ ช่องว่าง" />
       <TextField fx:id="lname" layoutX="127.0" layoutY="75.0" prefHeight="25.0" prefWidth="253.0" promptText="ห้ามเป็นอักขระพิเศษ หรือ ช่องว่าง" />
       <PasswordField fx:id="password" layoutX="128.0" layoutY="127.0" prefHeight="25.0" prefWidth="253.0" promptText=" ไม่ต่ำกว่า 4 ตัวอักษร และ ไม่มากกว่า 6 ตัวอักษร " />
@@ -37,31 +37,31 @@
       <Button layoutX="272.0" layoutY="429.0" mnemonicParsing="false" onAction="#back" prefHeight="38.0" prefWidth="189.0" text="ย้อนกลับ" textFill="#4400ff" />
       <Button layoutX="32.0" layoutY="429.0" mnemonicParsing="false" onAction="#SignUp" prefHeight="38.0" prefWidth="189.0" text="ลงทะเบียน" textFill="#350dff" />
 <!--      <Layer layoutX="32.0" layoutY="34.0" />-->
-      <Label layoutX="13.0" layoutY="32.0" prefHeight="17.0" prefWidth="39.0" text="ชื่อจริง" textFill="WHITE">
+      <Label layoutX="13.0" layoutY="32.0" prefHeight="17.0" prefWidth="39.0" text="ชื่อจริง" textFill="#515070">
          <font>
             <Font size="13.0" />
          </font></Label>
-      <Label layoutX="13.0" layoutY="79.0" prefHeight="17.0" prefWidth="66.0" text="นามสกุล" textFill="WHITE">
+      <Label layoutX="13.0" layoutY="79.0" prefHeight="17.0" prefWidth="66.0" text="นามสกุล" textFill="#515070">
          <font>
             <Font size="13.0" />
          </font></Label>
-      <Label layoutX="13.0" layoutY="131.0" prefHeight="19.0" prefWidth="51.0" text="รหัสผ่าน" textFill="WHITE">
+      <Label layoutX="13.0" layoutY="131.0" prefHeight="19.0" prefWidth="51.0" text="รหัสผ่าน" textFill="#515070">
          <font>
             <Font size="13.0" />
          </font></Label>
-      <Label layoutX="10.0" layoutY="180.0" prefHeight="19.0" prefWidth="91.0" text="รหัสบัตรประชาชน" textFill="WHITE">
+      <Label layoutX="10.0" layoutY="180.0" prefHeight="19.0" prefWidth="91.0" text="รหัสบัตรประชาชน" textFill="#515070">
          <font>
             <Font size="13.0" />
          </font></Label>
-      <Label layoutX="13.0" layoutY="228.0" prefHeight="17.0" prefWidth="39.0" text="อายุ" textFill="WHITE">
+      <Label layoutX="13.0" layoutY="228.0" prefHeight="17.0" prefWidth="39.0" text="อายุ" textFill="#515070">
          <font>
             <Font size="13.0" />
          </font></Label>
-      <Label layoutX="13.0" layoutY="279.0" prefHeight="17.0" prefWidth="39.0" text="ทีอยู่" textFill="WHITE">
+      <Label layoutX="13.0" layoutY="279.0" prefHeight="17.0" prefWidth="39.0" text="ทีอยู่" textFill="#515070">
          <font>
             <Font size="13.0" />
          </font></Label>
-      <Label layoutX="10.0" layoutY="324.0" prefHeight="17.0" prefWidth="84.0" text="เบอร์โทรศัพท์" textFill="WHITE">
+      <Label layoutX="10.0" layoutY="324.0" prefHeight="17.0" prefWidth="84.0" text="เบอร์โทรศัพท์" textFill="#515070">
          <font>
             <Font size="13.0" />
          </font></Label>
