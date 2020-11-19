@@ -64,7 +64,7 @@ public class Deposit_WithdrawController implements Initializable {
                 }
                 else {
                     total = total + add;
-                    String sql = "UPDATE `table_member` SET `balance` = '" + total + "' WHERE `table_member`.`idnumber` = '" + StaticAllmember.getStatic_allmember().get(count_loop).getId() + "';";
+                    String sql = "UPDATE `table_member` SET `balanceAccount` = '" + total + "' WHERE `table_member`.`member_ID` = '" + StaticAllmember.getStatic_allmember().get(count_loop).getId() + "';";
                     try {
                         Connection connection = DB_memberClass.getConnection();
                         Statement statement = connection.createStatement();
@@ -117,7 +117,7 @@ public class Deposit_WithdrawController implements Initializable {
                     Count_history_transaction.setCount(Count_history_transaction.getCount() + 1);
 
                     total = total - minus;
-                    String sql = "UPDATE `table_member` SET `balance` = '" + total + "' WHERE `table_member`.`idnumber` = '" + StaticAllmember.getStatic_allmember().get(count_loop).getId() + "';";
+                    String sql = "UPDATE `table_member` SET `balanceAccount` = '" + total + "' WHERE `table_member`.`member_ID` = '" + StaticAllmember.getStatic_allmember().get(count_loop).getId() + "';";
                     try {
                         Connection connection = DB_memberClass.getConnection();
                         Statement statement = connection.createStatement();

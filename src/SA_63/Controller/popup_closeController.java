@@ -30,7 +30,7 @@ public class popup_closeController implements Initializable {
     public void accept(ActionEvent event) throws IOException {
         if(StaticAllmember.getStatic_allmember().get(count_loop).getId().equals(idnumber.getText())){
             warn.setVisible(false);
-            String sql = "DELETE FROM `table_member` WHERE `table_member`.`idnumber` ="+"'"+idnumber.getText()+"'";
+            String sql = "DELETE FROM `table_member` WHERE `table_member`.`member_ID` ="+"'"+idnumber.getText()+"'";
             try {
                 Connection connection = DB_memberClass.getConnection();
                 Statement statement = connection.createStatement();

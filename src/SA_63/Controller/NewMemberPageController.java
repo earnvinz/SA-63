@@ -136,7 +136,7 @@ public class NewMemberPageController {
 
             DB_memberClass db_memberClass = new DB_memberClass();
             Connection connection = DB_memberClass.getConnection();
-            String sql = "INSERT INTO `table_member` (`fname`, `lname`, `age`, `idnumber`, `address`, `contact`, `gender`, `balance`, `password`) VALUES(" + "'" + fname.getText() + "'," + "'" + lname.getText() + "'," + "'" + age.getText() + "'," + "'" + cardnumber.getText() + "'," + "'" + address.getText() + "'," + "'" + contact.getText() + "'," + "'" + gender.getText() + "'," + "'" + money.getText() + "'," + "'" + password.getText() + "')";
+            String sql = "INSERT INTO `table_member` (`nameMember`, `LastNameMember`, `ageMember`, `member_ID`, `addressMember`, `phoneMember`, `genderMember`, `balanceAccount`, `passwordMember`) VALUES(" + "'" + fname.getText() + "'," + "'" + lname.getText() + "'," + "'" + age.getText() + "'," + "'" + cardnumber.getText() + "'," + "'" + address.getText() + "'," + "'" + contact.getText() + "'," + "'" + gender.getText() + "'," + "'" + money.getText() + "'," + "'" + password.getText() + "')";
             Statement statement = connection.createStatement();
             statement.executeUpdate(sql);
             Count_history_transaction.setCount(Count_history_transaction.getCount() + 1);
