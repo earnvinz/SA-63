@@ -24,6 +24,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -32,11 +34,11 @@ public class NewMemberPageController {
     @FXML
     TextField fname,lname,cardnumber,age,address,contact,money;
     @FXML
-    MenuButton gender;
+    MenuButton gender,interest;
     @FXML
-    PasswordField password;
+    PasswordField password,cpassword;
     @FXML
-    Label wname,wlname,wpassword,widnumber,wage,wgender,waddress,wcontact,wmoney;
+    Label wname,wlname,wpassword,widnumber,wage,wgender,waddress,wcontact,wmoney,winterest,winning,wcpassword;
 
     public void back(ActionEvent event) throws IOException {
 
@@ -131,12 +133,31 @@ public class NewMemberPageController {
         else{
             wmoney.setVisible(true);
         }
+        if(!interest.getText().equals("อัตราดอกเบี้ย")){
+            winterest.setVisible(false);
+            count +=1;
+        }
+        else{
+            winterest.setVisible(true);
+        }
 
-        if(count == 9) {
+        if(password.getText().equals(cpassword.getText())){
 
+            wcpassword.setVisible(false);
+            count+=1;
+        }
+        else{
+            wcpassword.setVisible(true);
+        }
+
+        if(count == 11) {
+            SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd");
+
+            LocalDate date2 = LocalDate.now();
             DB_memberClass db_memberClass = new DB_memberClass();
             Connection connection = DB_memberClass.getConnection();
-            String sql = "INSERT INTO `table_member` (`nameMember`, `LastNameMember`, `ageMember`, `member_ID`, `addressMember`, `phoneMember`, `genderMember`, `balanceAccount`, `passwordMember`) VALUES(" + "'" + fname.getText() + "'," + "'" + lname.getText() + "'," + "'" + age.getText() + "'," + "'" + cardnumber.getText() + "'," + "'" + address.getText() + "'," + "'" + contact.getText() + "'," + "'" + gender.getText() + "'," + "'" + money.getText() + "'," + "'" + password.getText() + "')";
+            String sql = "INSERT INTO `table_member` (`nameMember`, `LastNameMember`, `ageMember`, `member_ID`, `addressMember`, `phoneMember`, `genderMember`, `balanceAccount`, `passwordMember`,`statusAccount`, `openDateAccount`, `interest_Id`) VALUES(" + "'" + fname.getText() + "'," + "'" + lname.getText() + "'," + "'" + age.getText() + "'," + "'" + cardnumber.getText() + "'," + "'" + address.getText() + "'," + "'" + contact.getText() + "'," + "'" + gender.getText() + "'," + "'" +
+                    money.getText() + "'," + "'" + password.getText() + "',"+"'"+"O"+"',"+"'"+LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))+"',"+"'"+interest.getText()+ "')";
             Statement statement = connection.createStatement();
             statement.executeUpdate(sql);
             Count_history_transaction.setCount(Count_history_transaction.getCount() + 1);
@@ -149,11 +170,14 @@ public class NewMemberPageController {
             statement1.executeUpdate(sql1);
 
 
-            Parent root = FXMLLoader.load(getClass().getResource("OfficerPage.fxml"));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root, 624, 578));
-            stage.show();
-            stage.setResizable(false);
+            clearAllcontrol();
+
+            winning.setVisible(true);
+//            Parent root = FXMLLoader.load(getClass().getResource("OfficerPage.fxml"));
+//            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//            stage.setScene(new Scene(root, 624, 578));
+//            stage.show();
+//            stage.setResizable(false);
         }
     }
     public boolean Checkname(String name){
@@ -234,10 +258,14 @@ public class NewMemberPageController {
         if(getSpecialCharacterCount(age) == 1){
             return false;
         }
+
         if(!CheckAllcharisnumber(age)){
             System.out.println("age is not number");
             return false;
 
+        }
+        if(Integer.parseInt(age) < 20){
+            return false;
         }
         return true;
     }
@@ -330,5 +358,22 @@ public class NewMemberPageController {
             return false;
         }
         return true;
+    }
+    public void setinterest1(ActionEvent event) throws IOException {
+        interest.setText("1.0");
+    }
+    public void setinterest2(ActionEvent event) throws IOException {
+        interest.setText("1.3");
+    }
+    public void setinterest3(ActionEvent event) throws IOException {
+        interest.setText("1.5");
+    }
+
+    public void clearAllcontrol(){
+
+
+        fname.setText("");lname.setText("");cardnumber.setText("");age.setText("");address.setText("");
+        contact.setText("");money.setText("");gender.setText("เพศ");interest.setText("อัตราดอกเบี้ย");password.setText("");
+        cpassword.setText("");
     }
 }

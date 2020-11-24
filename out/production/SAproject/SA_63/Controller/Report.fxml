@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SA_63.Controller.ReportController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="400.0" stroke="BLACK" strokeType="INSIDE" width="741.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="339.0" layoutX="23.0" layoutY="22.0" stroke="BLACK" strokeType="INSIDE" width="120.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#f61fff" />
+                  <Stop color="#75e1ff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Button layoutX="31.0" layoutY="141.0" mnemonicParsing="false" onAction="#withdraw" prefHeight="36.0" prefWidth="104.0" text="รายงานการถอน" />
+      <Button layoutX="31.0" layoutY="65.0" mnemonicParsing="false" onAction="#deposit" prefHeight="36.0" prefWidth="104.0" text="รายงานการฝาก" />
+      <Label fx:id="list" layoutX="173.0" layoutY="22.0" prefHeight="36.0" prefWidth="395.0" text="รายการ" textFill="#ff2727" underline="true" visible="false">
+         <font>
+            <Font name="Calibri" size="26.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="anchor" layoutX="179.0" layoutY="317.0" prefHeight="47.0" prefWidth="384.0" style="-fx-background-color: #ffffff;" visible="false">
+         <children>
+            <Label fx:id="labelamount" layoutY="8.0" prefHeight="31.0" prefWidth="369.0" text="จำนวนเงินทั้งหมด  :  ">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="table" layoutX="169.0" layoutY="76.0" prefHeight="231.0" prefWidth="542.0">
+        <columns>
+          <TableColumn fx:id="date" editable="false" prefWidth="132.0" sortable="false" text="วันที่" />
+          <TableColumn fx:id="type" editable="false" prefWidth="68.0" sortable="false" text="สถานะ" />
+            <TableColumn fx:id="amount" editable="false" prefWidth="98.0" sortable="false" text="จำนวน" />
+            <TableColumn fx:id="idnumber" editable="false" minWidth="0.0" prefWidth="137.0" sortable="false" text="เลขที่บัญชี" />
+            <TableColumn fx:id="iddepwith" editable="false" prefWidth="106.0" sortable="false" text="รหัสทำรายการ" />
+        </columns>
+      </TableView>
+      <Button layoutX="31.0" layoutY="281.0" mnemonicParsing="false" onAction="#back" prefHeight="36.0" prefWidth="104.0" text="กลับสู่หน้าหลัก" />
+   </children>
+</AnchorPane>

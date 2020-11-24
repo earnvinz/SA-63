@@ -21,13 +21,13 @@
         </items>
       </MenuButton>
       <Label fx:id="name" layoutX="170.0" layoutY="36.0" prefHeight="17.0" prefWidth="214.0" text="คุณ " />
-      <TextField fx:id="money" alignment="CENTER" layoutX="29.0" layoutY="80.0" prefHeight="25.0" prefWidth="233.0" promptText="จำนวนเงิน" />
-      <Button layoutX="57.0" layoutY="164.0" mnemonicParsing="false" onAction="#accept" prefHeight="35.0" prefWidth="107.0" text="ยืนยัน" />
-      <Button layoutX="253.0" layoutY="164.0" mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="107.0" text="ยกเลิก" />
-      <Label fx:id="warn" layoutX="29.0" layoutY="119.0" prefHeight="28.0" prefWidth="233.0" text="ยอดเงินคงเหลือไม่เพียงพอ" textFill="#727272" underline="true">
+      <TextField fx:id="money" alignment="CENTER" layoutX="22.0" layoutY="113.0" prefHeight="25.0" prefWidth="274.0" promptText="จำนวนเงิน ฝากเงินได้ขั้นต่ำ 100 บาท สูงสุด 50000 บาท" />
+      <Button layoutX="45.0" layoutY="199.0" mnemonicParsing="false" onAction="#accept" prefHeight="35.0" prefWidth="107.0" text="ยืนยัน" />
+      <Button layoutX="254.0" layoutY="199.0" mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="107.0" text="ยกเลิก" />
+      <Label fx:id="warn" layoutX="36.0" layoutY="157.0" prefHeight="28.0" prefWidth="233.0" text="ยอดเงินคงเหลือไม่เพียงพอ" textFill="#727272" underline="true">
          <font>
             <Font name="Verdana Italic" size="21.0" />
          </font></Label>
-      <Label layoutX="279.0" layoutY="84.0" prefHeight="17.0" prefWidth="30.0" text="THB" />
+      <Label layoutX="308.0" layoutY="117.0" prefHeight="17.0" prefWidth="30.0" text="บาท" />
    </children>
 </AnchorPane>

@@ -22,6 +22,8 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.sql.*;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -43,10 +45,11 @@ public class SigninController implements Initializable {
             if(CheckPassword()){
                 if(CheckisEmployee()){
                     for(Employee e : allemployee){
-                        if(e.getId().equals(id.getText())){
+                        if(e.getId().equals(id.getText() )){
                             StaticAllEmployee.setOnlineEmployee(e);
                         }
                     }
+
                     Parent root = FXMLLoader.load(getClass().getResource("OfficerPage.fxml"));
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     stage.setScene(new Scene(root, 624, 578));
@@ -54,11 +57,17 @@ public class SigninController implements Initializable {
                     stage.setResizable(false);
                 }
                 else{
-                    Parent root = FXMLLoader.load(getClass().getResource("MemberPage.fxml"));
-                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    stage.setScene(new Scene(root, 408, 445));
-                    stage.show();
-                    stage.setResizable(false);
+                    if(OnlineUser.getOnline().getStatusAccount().equals("O")) {
+                        Parent root = FXMLLoader.load(getClass().getResource("MemberPage.fxml"));
+                        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        stage.setScene(new Scene(root, 408, 445));
+                        stage.show();
+                        stage.setResizable(false);
+                    }
+                    else {
+                        warn.setText("สถานะบัญชีปิดใช้งาน");
+                        warn.setVisible(true);
+                    }
                 }
 
             }
@@ -106,7 +115,15 @@ public class SigninController implements Initializable {
                 Gender gender = Gender.valueOf(g);
                 Double balance = Double.parseDouble(resultSet.getString(8));
                 String password = resultSet.getString(9);
-                allmember.add(new Member(fname,lname,age,id,address,contact,gender,balance,password));
+
+                String status = resultSet.getString(10);
+
+                DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                LocalDate date = LocalDate.parse(resultSet.getString(11),formatter1);
+
+                float interest = Float.parseFloat(resultSet.getString(12));
+                allmember.add(new Member(fname,lname,age,id,address,
+                        contact,gender,balance,password,status,date,interest));
             }
             StaticAllmember.setStatic_allmember(allmember);
         }

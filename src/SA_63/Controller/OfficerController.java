@@ -19,6 +19,8 @@ import SA_63.Static.StaticAllmember;
 import java.net.URL;
 import java.sql.*;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -27,7 +29,7 @@ public class OfficerController implements Initializable {
     private ResultSet resultSet;
     private ArrayList<Member> allmember = new ArrayList<>();
     @FXML
-    Label name,surname,idnumber,age,address,contact,gender,money,warn;
+    Label name,surname,idnumber,age,address,contact,gender,money,warn,status;
     @FXML
     Button next,back,close,open,depo_with;
     @FXML
@@ -45,7 +47,7 @@ public class OfficerController implements Initializable {
 
         Parent root = FXMLLoader.load(getClass().getResource("NewMemberPage.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root, 559, 505));
+        stage.setScene(new Scene(root, 559, 577));
         stage.show();
         stage.setResizable(false);
     }
@@ -55,7 +57,7 @@ public class OfficerController implements Initializable {
 
         Parent root = FXMLLoader.load(getClass().getResource("popup_closemember.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root, 377, 179));
+        stage.setScene(new Scene(root, 441, 359));
 
         stage.setResizable(false);
         stage.show();
@@ -84,7 +86,18 @@ public class OfficerController implements Initializable {
 
 
 
+    public void report(ActionEvent event) throws IOException {
 
+        Parent root = FXMLLoader.load(getClass().getResource("Report.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root, 741, 400));
+
+        stage.setResizable(false);
+        stage.show();
+
+
+
+    }
 
 
 
@@ -104,6 +117,16 @@ public class OfficerController implements Initializable {
             contact.setText(allmember.get(count_loop).getPhonenumber());
             gender.setText("" + allmember.get(count_loop).getGender());
             money.setText("" + allmember.get(count_loop).getBalance());
+
+
+            String status1 = "";
+            if(allmember.get(count_loop).getStatusAccount().equals("C")){
+                status1 = "ปัญชีปิดใช้งาน";
+            }
+            else{
+                status1 = "บัญชีเปิดใช้งาน";
+            }
+            status.setText(""+status1);
         }
         else{
             next.setDisable(true);
@@ -135,6 +158,15 @@ public class OfficerController implements Initializable {
             contact.setText(allmember.get(count_loop).getPhonenumber());
             gender.setText("" + allmember.get(count_loop).getGender());
             money.setText("" + allmember.get(count_loop).getBalance());
+
+            String status1 = "";
+            if(allmember.get(count_loop).getStatusAccount().equals("C")){
+                status1 = "ปัญชีปิดใช้งาน";
+            }
+            else{
+                status1 = "บัญชีเปิดใช้งาน";
+            }
+            status.setText(""+status1);
         }
         if(count_loop+1 == allmember.size()){
             next.setDisable(true);
@@ -160,6 +192,16 @@ public class OfficerController implements Initializable {
             contact.setText(allmember.get(count_loop).getPhonenumber());
             gender.setText("" + allmember.get(count_loop).getGender());
             money.setText("" + allmember.get(count_loop).getBalance());
+
+            String status1 = "";
+            if(allmember.get(count_loop).getStatusAccount().equals("C")){
+                status1 = "ปัญชีปิดใช้งาน";
+            }
+            else{
+                status1 = "บัญชีเปิดใช้งาน";
+            }
+            status.setText(""+status1);
+
         }
         if(count_loop == 0){
             back.setDisable(true);
@@ -190,7 +232,17 @@ public class OfficerController implements Initializable {
                 Gender gender = Gender.valueOf(g);
                 Double balance = Double.parseDouble(resultSet.getString(8));
                 String password = resultSet.getString(9);
-                allmember.add(new Member(fname,lname,age,id,address,contact,gender,balance,password));
+
+                String status = resultSet.getString(10);
+
+                DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                LocalDate date = LocalDate.parse(resultSet.getString(11),formatter1);
+
+                float interest = Float.parseFloat(resultSet.getString(12));
+
+
+                allmember.add(new Member(fname,lname,age,id,address,contact,gender,balance,
+                        password,status,date,interest));
             }
             StaticAllmember.setStatic_allmember(allmember);
         }

@@ -52,6 +52,7 @@ public class TransactionController implements Initializable {
         Myhistory = new ArrayList<>();
         name.setText(name.getText()+" "+ OnlineUser.getOnline().getFirstname()+" "+OnlineUser.getOnline().getLastname());
         for(Deposit_Withdraw deposit_withdraw : Count_history_transaction.getHistory()){
+
             if(deposit_withdraw.getAccount_ID().equals(OnlineUser.getOnline().getId())){
                 Myhistory.add(deposit_withdraw);
 

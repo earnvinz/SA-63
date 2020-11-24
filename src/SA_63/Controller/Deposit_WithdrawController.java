@@ -40,9 +40,12 @@ public class Deposit_WithdrawController implements Initializable {
     }
     public void setDeposit(ActionEvent event) throws IOException {
         choice.setText("ฝากเงิน");
+        warn.setVisible(false);
     }
     public void setWithdraw(ActionEvent event) throws IOException {
         choice.setText("ถอนเงิน");
+        warn.setVisible(false);
+
 
     }
 
@@ -58,10 +61,13 @@ public class Deposit_WithdrawController implements Initializable {
             if (isNumeric(money.getText())) {
                 double total = StaticAllmember.getStatic_allmember().get(count_loop).getBalance();
                 double add = Double.parseDouble(money.getText());
-                if(add <= 0){
+                if(add < 100 || add > 50000  ){
+
+
                     warn.setText("ข้อมูลไม่ถูกต้อง");
                     warn.setVisible(true);
                 }
+
                 else {
                     total = total + add;
                     String sql = "UPDATE `table_member` SET `balanceAccount` = '" + total + "' WHERE `table_member`.`member_ID` = '" + StaticAllmember.getStatic_allmember().get(count_loop).getId() + "';";
@@ -80,15 +86,19 @@ public class Deposit_WithdrawController implements Initializable {
                         Connection connection = DB_historyClass.getConnection();
                         Statement stm = connection.createStatement();
                         stm.executeUpdate(sql1);
-
-                        Parent root = FXMLLoader.load(getClass().getResource("OfficerPage.fxml"));
-                        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                        stage.setScene(new Scene(root, 624, 578));
-                        stage.show();
-                        stage.setResizable(false);
+                        warn.setText("ทำรายการเสร็จสิ้น");
+                        warn.setVisible(true);
+                        money.setText("");
+                        choice.setText("ฝาก/ถอน");
+//                        Parent root = FXMLLoader.load(getClass().getResource("OfficerPage.fxml"));
+//                        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//                        stage.setScene(new Scene(root, 624, 578));
+//                        stage.show();
+//                        stage.setResizable(false);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+
                 }
 
             }
@@ -113,6 +123,12 @@ public class Deposit_WithdrawController implements Initializable {
                     warn.setVisible(true);
 
                 }
+                else if(minus < 100){
+                    warn.setText("ข้อมูลไม่ถูกต้อง");
+                    warn.setVisible(true);
+                }
+                // สตางค์ไม่เอา
+
                 else {
                     Count_history_transaction.setCount(Count_history_transaction.getCount() + 1);
 
@@ -136,11 +152,16 @@ public class Deposit_WithdrawController implements Initializable {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    Parent root = FXMLLoader.load(getClass().getResource("OfficerPage.fxml"));
-                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    stage.setScene(new Scene(root, 624, 578));
-                    stage.show();
-                    stage.setResizable(false);
+                    warn.setText("ทำรายการเสร็จสิ้น");
+                    warn.setVisible(true);
+                    money.setText("");
+                    choice.setText("ฝาก/ถอน");
+
+//                    Parent root = FXMLLoader.load(getClass().getResource("OfficerPage.fxml"));
+//                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//                    stage.setScene(new Scene(root, 624, 578));
+//                    stage.show();
+//                    stage.setResizable(false);
                 }
 
             }
